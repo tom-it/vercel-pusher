@@ -7,11 +7,12 @@ const channels = new Channels({
     cluster: 'us2',
 });
 
-module.exports = (req, res) => {
-
+module.exports = async (req, res) => {
 
     const data = req.body;
-    channels.trigger('redirect_22', 'redirect', data, () => {
-        res.status(200).end('sent event successfully');
-    });
+    let result = await channels.trigger('redirect_22', 'redirect', data);
+
+    console.log(result);
+
+    res.status(200).end("ok");
 };
