@@ -8,10 +8,10 @@ const {
 } = process.env;
 
 
-console.log("setup pusher channel");
-console.log(appId);
-console.log(key);
-console.log({
+console.info("setup pusher channel");
+console.info(appId);
+console.info(key);
+console.info({
     appId,
     key,
     secret,
