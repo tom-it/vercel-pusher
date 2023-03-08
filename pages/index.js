@@ -1,7 +1,34 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 
+import Pusher from 'pusher-js'
+import {useEffect} from "react";
+
+var pusher = new Pusher('105a23cb70c7843e3a00', {
+  appId: "1565295",
+  key: "105a23cb70c7843e3a00",
+  secret: "30f65df9044563a2b21c",
+  cluster: 'us2',
+  encrypted: true
+})
+
+console.log("subscribe to pusher");
+const channel = pusher.subscribe('redirect_22')
+console.log(channel);
+const receiveUpdateFromPusher = () => {
+  channel.bind('redirect', data => {
+    console.log({data});
+  })
+  console.log('app subscription to event successful')
+}
+
+
 export default function Home() {
+
+  useEffect( () => {
+    receiveUpdateFromPusher()
+  });
+
   return (
     <div className={styles.container}>
       <Head>
