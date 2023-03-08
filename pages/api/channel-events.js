@@ -1,22 +1,5 @@
 const Channels = require('pusher');
 
-const {
-    '1565295': appId,
-    '105a23cb70c7843e3a00': key,
-    '30f65df9044563a2b21c': secret,
-    'us2': cluster,
-} = process.env;
-
-
-console.info("setup pusher channel");
-console.info(appId);
-console.info(key);
-console.info({
-    appId : '1565295',
-    key : '105a23cb70c7843e3a00',
-    secret: '30f65df9044563a2b21c',
-    cluster: 'us2',
-});
 const channels = new Channels({
     appId : '1565295',
     key : '105a23cb70c7843e3a00',

@@ -26,6 +26,7 @@ const receiveUpdateFromPusher = () => {
 export default function Home() {
 
   useEffect( () => {
+    console.log("loading");
     receiveUpdateFromPusher()
   });
 
